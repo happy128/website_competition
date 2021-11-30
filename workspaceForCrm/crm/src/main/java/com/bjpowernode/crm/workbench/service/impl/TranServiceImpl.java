@@ -15,9 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
 public class TranServiceImpl implements TranService {
 
     private TranDao tranDao = SqlSessionUtil.getSqlSession().getMapper(TranDao.class);

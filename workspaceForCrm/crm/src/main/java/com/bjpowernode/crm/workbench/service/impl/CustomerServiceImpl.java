@@ -6,9 +6,6 @@ import com.bjpowernode.crm.workbench.service.CustomerService;
 
 import java.util.List;
 
-/**
- * Author 北京动力节点
- */
 public class CustomerServiceImpl implements CustomerService {
 
     private CustomerDao customerDao = SqlSessionUtil.getSqlSession().getMapper(CustomerDao.class);

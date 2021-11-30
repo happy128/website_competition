@@ -2,9 +2,7 @@ package com.bjpowernode.crm.vo;
 
 import java.util.List;
 
-/**
- * Author 北京动力节点
- */
+
 public class PaginationVO<T> {
 
     private int total;

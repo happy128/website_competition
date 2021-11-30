@@ -6,9 +6,6 @@ import com.bjpowernode.crm.workbench.domain.TranHistory;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
 public interface TranService {
     boolean save(Tran t, String customerName);
 

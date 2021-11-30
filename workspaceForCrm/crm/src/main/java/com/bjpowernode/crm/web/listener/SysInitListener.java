@@ -10,9 +10,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.util.*;
 
-/**
- * Author 北京动力节点
- */
 public class SysInitListener implements ServletContextListener {
 
     /*

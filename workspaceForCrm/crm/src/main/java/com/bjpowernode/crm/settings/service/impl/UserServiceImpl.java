@@ -11,9 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
 public class UserServiceImpl implements UserService {
 
     private UserDao userDao = SqlSessionUtil.getSqlSession().getMapper(UserDao.class);
@@ -53,13 +50,13 @@ public class UserServiceImpl implements UserService {
         }
 
         //判断ip地址
-        String allowIps = user.getAllowIps();
-
-        if(!allowIps.contains(ip)){
-
-            throw new LoginException("ip地址受限");
-
-        }
+//        String allowIps = user.getAllowIps();
+//
+//        if(!allowIps.contains(ip)){
+//
+//            throw new LoginException("ip地址受限");
+//
+//        }
 
 
         return user;
@@ -68,7 +65,6 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserList() {
 
         List<User> uList = userDao.getUserList();
-        System.out.println("33333333333333"+uList);
         return uList;
     }
 }

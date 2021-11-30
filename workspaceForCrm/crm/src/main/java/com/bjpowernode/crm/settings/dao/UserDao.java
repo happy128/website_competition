@@ -5,9 +5,7 @@ import com.bjpowernode.crm.settings.domain.User;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
+
 public interface UserDao {
 
 

@@ -4,9 +4,7 @@ import com.bjpowernode.crm.workbench.domain.ActivityRemark;
 
 import java.util.List;
 
-/**
- * Author 北京动力节点
- */
+
 public interface ActivityRemarkDao {
     int getCountByAids(String[] ids);
 

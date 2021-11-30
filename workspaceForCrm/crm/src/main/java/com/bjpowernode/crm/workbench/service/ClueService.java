@@ -5,9 +5,6 @@ import com.bjpowernode.crm.workbench.domain.Tran;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Author 北京动力节点
- */
 public interface ClueService {
     boolean save(Clue c);
 

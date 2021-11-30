@@ -5,9 +5,6 @@ import com.bjpowernode.crm.workbench.domain.Activity;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
 public interface ActivityDao {
     int save(Activity a);
 

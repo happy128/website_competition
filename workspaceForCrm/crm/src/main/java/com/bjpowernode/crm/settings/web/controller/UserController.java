@@ -15,9 +15,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
 public class UserController extends HttpServlet {
 
     @Override

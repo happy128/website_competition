@@ -3,9 +3,6 @@ package com.bjpowernode.crm.web.filter;
 import javax.servlet.*;
 import java.io.IOException;
 
-/**
- * Author 北京动力节点
- */
 public class EncodingFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 

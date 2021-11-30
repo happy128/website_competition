@@ -10,9 +10,6 @@ import com.bjpowernode.crm.workbench.service.ClueService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-/**
- * Author 北京动力节点
- */
 public class ClueServiceImpl implements ClueService {
 
     //线索相关表

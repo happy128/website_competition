@@ -126,24 +126,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 					 */
 					if(data.success){
 
-						//添加成功后
-						//刷新市场活动信息列表（局部刷新）
-						//pageList(1,2);
 
-						/*
-						*
-						* $("#activityPage").bs_pagination('getOption', 'currentPage'):
-						* 		操作后停留在当前页
-						*
-						* $("#activityPage").bs_pagination('getOption', 'rowsPerPage')
-						* 		操作后维持已经设置好的每页展现的记录数
-						*
-						* 这两个参数不需要我们进行任何的修改操作
-						* 	直接使用即可
-						*
-						*
-						*
-						* */
 
 						//做完添加操作后，应该回到第一页，维持每页展现的记录数
 
@@ -182,7 +165,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 					}else{
 
-						alert("添加市场活动失败");
+						alert("添加行动失败");
 
 					}
 
@@ -308,7 +291,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 							}else{
 
-								alert("删除市场活动失败");
+								alert("删除行动失败");
 
 							}
 
@@ -455,7 +438,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 					}else{
 
-						alert("修改市场活动失败");
+						alert("修改行动失败");
 
 					}
 
@@ -599,7 +582,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">×</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel2">修改市场活动</h4>
+					<h4 class="modal-title" id="myModalLabel2">修改行动</h4>
 				</div>
 				<div class="modal-body">
 
@@ -674,7 +657,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">×</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel1">创建市场活动</h4>
+					<h4 class="modal-title" id="myModalLabel1">创建行动</h4>
 				</div>
 				<div class="modal-body">
 				
@@ -744,7 +727,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	<div>
 		<div style="position: relative; left: 10px; top: -10px;">
 			<div class="page-header">
-				<h3>市场活动列表</h3>
+				<h3>行动管理列表</h3>
 			</div>
 		</div>
 	</div>

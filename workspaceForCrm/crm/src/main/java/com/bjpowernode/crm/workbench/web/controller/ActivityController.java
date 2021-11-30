@@ -19,9 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Author 北京动力节点
- */
 public class ActivityController extends HttpServlet {
 
     @Override

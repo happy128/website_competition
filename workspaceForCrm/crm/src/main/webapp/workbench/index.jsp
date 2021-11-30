@@ -176,8 +176,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				<li class="liClass">
 					<a href="#no4" class="collapsed" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right"></span> 客户关系管理</a>
 					<ul id="no4" class="nav nav-pills nav-stacked collapse">
-						<li class="liClass"><a href="workbench/activity/index.jsp" target="workareaFrame">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle"></span> 行动</a></li>
-						<li class="liClass"><a href="workbench/visit/index.html" target="workareaFrame">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-phone-alt"></span> 投诉建议</a></li>
+						<li class="liClass"><a href="workbench/activity/index.jsp" target="workareaFrame">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play-circle"></span> 行动管理</a></li>
+						<li class="liClass"><a href="workbench/visit/index.html" target="workareaFrame">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-phone-alt"></span> 投诉建议管理</a></li>
 					</ul>
 				</li>
 <%--				workbench/salesman/index2.jsp--%>

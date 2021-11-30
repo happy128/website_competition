@@ -1,8 +1,6 @@
 package com.bjpowernode.crm.workbench.domain;
 
-/**
- * Author 北京动力节点
- */
+
 public class Activity {
 
     private String id;  //主键
