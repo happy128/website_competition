@@ -52,12 +52,12 @@ public class TranServiceImpl implements TranService {
 
             cus = new Customer();
             cus.setId(UUIDUtil.getUUID());
-            cus.setName(customerName);
-            cus.setCreateBy(t.getCreateBy());
-            cus.setCreateTime(DateTimeUtil.getSysTime());
-            cus.setContactSummary(t.getContactSummary());
-            cus.setNextContactTime(t.getNextContactTime());
-            cus.setOwner(t.getOwner());
+//            cus.setName(customerName);
+//            cus.setCreateBy(t.getCreateBy());
+//            cus.setCreateTime(DateTimeUtil.getSysTime());
+//            cus.setContactSummary(t.getContactSummary());
+//            cus.setNextContactTime(t.getNextContactTime());
+//            cus.setOwner(t.getOwner());
             //添加客户
             int count1 = customerDao.save(cus);
             if(count1!=1){

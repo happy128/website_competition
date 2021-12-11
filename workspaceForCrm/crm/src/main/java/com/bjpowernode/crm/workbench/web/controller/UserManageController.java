@@ -3,10 +3,7 @@ package com.bjpowernode.crm.workbench.web.controller;
 import com.bjpowernode.crm.settings.domain.User;
 import com.bjpowernode.crm.settings.service.UserService;
 import com.bjpowernode.crm.settings.service.impl.UserServiceImpl;
-import com.bjpowernode.crm.utils.DateTimeUtil;
-import com.bjpowernode.crm.utils.PrintJson;
-import com.bjpowernode.crm.utils.ServiceFactory;
-import com.bjpowernode.crm.utils.UUIDUtil;
+import com.bjpowernode.crm.utils.*;
 import com.bjpowernode.crm.vo.PaginationVO;
 import com.bjpowernode.crm.workbench.domain.ActivityRemark;
 import com.bjpowernode.crm.workbench.domain.UserManage;
@@ -73,6 +70,12 @@ public class UserManageController extends HttpServlet {
             getUserManageList(request,response);
 
         }
+        else if("/workbench/usermanage/getUserManageList_Id.do".equals(path)){
+
+            getUserManageList_Id(request,response);
+
+        }
+
 
 
     }
@@ -153,13 +156,15 @@ public class UserManageController extends HttpServlet {
 
     private void getRemarkListByAid(HttpServletRequest request, HttpServletResponse response) {
 
-        System.out.println("根据市场活动id，取得备注信息列表");
+        System.out.println("根据用户id，取得详细信息列表");
 
-        String activityId = request.getParameter("activityId");
+        String activityId = request.getParameter("id");
 
-        ActivityService as = (ActivityService) ServiceFactory.getService(new ActivityServiceImpl());
+        System.out.println(activityId);
 
-        List<ActivityRemark> arList = as.getRemarkListByAid(activityId);
+        UserManageService as = (UserManageService) ServiceFactory.getService(new UserManageServiceImpl());
+
+        List<UserManage> arList = as.getUserManageList_Id(activityId);
 
         PrintJson.printJsonObj(response, arList);
 
@@ -169,13 +174,14 @@ public class UserManageController extends HttpServlet {
 
         System.out.println("进入到跳转到详细信息页的操作");
 
-//        String id = request.getParameter("id");
-//
-//        ActivityService as = (ActivityService) ServiceFactory.getService(new ActivityServiceImpl());
-//
-//        Activity a = as.detail(id);
-//
-//        request.setAttribute("a", a);
+        String id = request.getParameter("id");
+
+
+        UserManageService as = (UserManageService) ServiceFactory.getService(new UserManageServiceImpl());
+
+        UserManage a = as.detail(id);
+
+        request.setAttribute("a", a);
 
         request.getRequestDispatcher("/workbench/usermanage/detail.jsp").forward(request, response);
 
@@ -185,14 +191,12 @@ public class UserManageController extends HttpServlet {
     private void update(HttpServletRequest request, HttpServletResponse response) {
 
         System.out.println("执行市场活动修改操作");
-
         String id = request.getParameter("id");
         String loginAct = request.getParameter("loginAct");
         String name = request.getParameter("name");
-        String startDate = request.getParameter("startDate");
-        String endDate = request.getParameter("endDate");
-        String cost = request.getParameter("cost");
-        String description = request.getParameter("description");
+        String email = request.getParameter("email");
+        String expireTime = request.getParameter("expireTime");
+        String deptno = request.getParameter("deptno");
         //修改时间：当前系统时间
         String editTime = DateTimeUtil.getSysTime();
         //修改人：当前登录用户
@@ -201,17 +205,15 @@ public class UserManageController extends HttpServlet {
         UserManage a = new UserManage();
         a.setId(id);
         a.setLoginAct(loginAct);
-        a.setName(startDate);
-        //a.setLoginPwd(owner);
         a.setName(name);
-        a.setEmail(endDate);
-        a.setExpireTime(description);
-        a.setDeptno(endDate);
+        a.setEmail(email);
+        a.setExpireTime(expireTime);
+        a.setDeptno(deptno);
 
         a.setEditBy(editBy);
         a.setEditTime(editTime);
 
-        UserManageService as = (UserManageService) ServiceFactory.getService(new ActivityServiceImpl());
+        UserManageService as = (UserManageService) ServiceFactory.getService(new UserManageServiceImpl());
 
         boolean flag = as.update(a);
 
@@ -243,7 +245,8 @@ public class UserManageController extends HttpServlet {
 
         String id = UUIDUtil.getUUID();
         String loginAct = request.getParameter("loginAct");
-        String loginPwd = request.getParameter("loginPwd");
+        String loginPwd_src = request.getParameter("loginPwd");
+        String loginPwd =MD5Util.getMD5(loginPwd_src);
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String expireTime = request.getParameter("expireTime");
@@ -296,6 +299,20 @@ public class UserManageController extends HttpServlet {
         List<UserManage> uList = us.getUserManageList();
 
         System.out.println("senc"+uList);
+
+        PrintJson.printJsonObj(response, uList);
+
+    }
+    private void getUserManageList_Id(HttpServletRequest request, HttpServletResponse response) {
+
+        System.out.println("取得用户ID");
+
+        String id = request.getParameter("id");
+
+        UserManageService us = (UserManageService) ServiceFactory.getService(new UserManageServiceImpl());
+
+        List<UserManage> uList = us.getUserManageList_Id(id);
+
 
         PrintJson.printJsonObj(response, uList);
 

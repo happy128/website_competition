@@ -184,7 +184,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 							}else{
 
-								alert("删除市场活动失败");
+								alert("删除用户失败");
 
 							}
 
@@ -225,7 +225,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 				$.ajax({
 
-					url : "workbench/usermanage/getUserListAndActivity.do",
+					url : "workbench/usermanage/getUserManageList_Id.do",
 					data : {
 
 						"id" : id
@@ -244,30 +244,33 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 								{"uList":[{用户1},{2},{3}],"a":{市场活动}}
 
 						 */
-
 						//处理所有者下拉框
-						var html = "<option></option>";
 
-						$.each(data.uList,function (i,n) {
 
-							html += "<option value='"+n.id+"'>"+n.name+"</option>";
+
+
+						//$("#edit-loginAct").html(html);
+
+
+
+
+						$.each(data,function (i,n) {
+							//处理单条activity
+							$("#edit-id").val(n.id);
+							$("#edit-loginAct").val(n.loginAct);
+							$("#edit-name").val(n.name);
+							$("#edit-email").val(n.email);
+							$("#edit-expireTime").val(n.expireTime);
+							$("#edit-deptno").val(n.deptno);
+							// $("#edit-createTime").val(data.a.createTime);
+							// $("#edit-createBy").val(data.a.createBy);
+
+							//所有的值都填写好之后，打开修改操作的模态窗口
+							$("#editUserManageModal").modal("show");
+
 
 						})
 
-						$("#edit-owner").html(html);
-
-
-						//处理单条activity
-						$("#edit-id").val(data.a.id);
-						$("#edit-name").val(data.a.name);
-						$("#edit-owner").val(data.a.owner);
-						$("#edit-startDate").val(data.a.startDate);
-						$("#edit-endDate").val(data.a.endDate);
-						$("#edit-cost").val(data.a.cost);
-						$("#edit-description").val(data.a.description);
-
-						//所有的值都填写好之后，打开修改操作的模态窗口
-						$("#editActivityModal").modal("show");
 
 					}
 
@@ -290,14 +293,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 				url : "workbench/usermanage/update.do",
 				data : {
-
 					"id" : $.trim($("#edit-id").val()),
-					"owner" : $.trim($("#edit-owner").val()),
+					"loginAct" : $.trim($("#edit-loginAct").val()),
 					"name" : $.trim($("#edit-name").val()),
-					"startDate" : $.trim($("#edit-startDate").val()),
-					"endDate" : $.trim($("#edit-endDate").val()),
-					"cost" : $.trim($("#edit-cost").val()),
-					"description" : $.trim($("#edit-description").val())
+					"email" : $.trim($("#edit-email").val()),
+					"expireTime" : $.trim($("#edit-expireTime").val()),
+					"deptno" : $.trim($("#edit-deptno").val())
 
 				},
 				type : "post",
@@ -325,13 +326,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 
 						//关闭修改操作的模态窗口
-						$("#editActivityModal").modal("hide");
+						$("#editUserManageModal").modal("hide");
 
 
 
 					}else{
 
-						alert("修改市场活动失败");
+						alert("修改用户信息失败");
 
 					}
 
@@ -435,8 +436,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	<input type="hidden" id="hidden-endDate"/>
 
 
-	<!-- 修改市场活动的模态窗口 -->
-	<div class="modal fade" id="editActivityModal" role="dialog">
+	<!-- 修改用戶的模态窗口 -->
+	<div class="modal fade" id="editUserManageModal" role="dialog">
 		<div class="modal-dialog" role="document" style="width: 85%;">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -452,52 +453,36 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 						<input type="hidden" id="edit-id"/>
 
 						<div class="form-group">
-							<label for="edit-marketActivityOwner" class="col-sm-2 control-label">所有者<span style="font-size: 15px; color: red;">*</span></label>
+							<label for="edit-loginAct" class="col-sm-2 control-label">登录名<span style="font-size: 15px; color: red;">*</span></label>
 							<div class="col-sm-10" style="width: 300px;">
-								<select class="form-control" id="edit-owner">
-
-
-
-								</select>
+								<input type="text" class="form-control" id="edit-loginAct">
 							</div>
-							<label for="edit-marketActivityName" class="col-sm-2 control-label">名称<span style="font-size: 15px; color: red;">*</span></label>
+							<label for="edit-name" class="col-sm-2 control-label">用户姓名<span style="font-size: 15px; color: red;">*</span></label>
 							<div class="col-sm-10" style="width: 300px;">
 								<input type="text" class="form-control" id="edit-name">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="edit-startTime" class="col-sm-2 control-label">开始日期</label>
+							<label for="edit-email" class="col-sm-2 control-label">邮箱</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control time" id="edit-startDate">
+								<input type="text" class="form-control" id="edit-email">
 							</div>
-							<label for="edit-endTime" class="col-sm-2 control-label">结束日期</label>
+							<label for="edit-expireTime" class="col-sm-2 control-label">到期时间</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control time" id="edit-endDate">
+								<input type="text" class="form-control time" id="edit-expireTime">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="edit-cost" class="col-sm-2 control-label">成本</label>
+
+							<label for="edit-deptno" class="col-sm-2 control-label">部门编号</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="edit-cost">
+								<input type="text" class="form-control" id="edit-deptno">
 							</div>
 						</div>
 
-						<div class="form-group">
-							<label for="edit-describe" class="col-sm-2 control-label">描述</label>
-							<div class="col-sm-10" style="width: 81%;">
-								<!--
 
-									关于文本域textarea：
-										（1）一定是要以标签对的形式来呈现,正常状态下标签对要紧紧的挨着
-										（2）textarea虽然是以标签对的形式来呈现的，但是它也是属于表单元素范畴
-												我们所有的对于textarea的取值和赋值操作，应该统一使用val()方法（而不是html()方法）
-
-								-->
-								<textarea class="form-control" rows="3" id="edit-description">123</textarea>
-							</div>
-						</div>
 
 					</form>
 

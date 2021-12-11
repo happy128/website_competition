@@ -179,7 +179,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 		$.ajax({
 
-			url : "workbench/activity/getRemarkListByAid.do",
+			url : "workbench/usermanage/getRemarkListByAid.do",
 			data : {
 
 				"activityId" : "${a.id}"
@@ -334,7 +334,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	<!-- 大标题 -->
 	<div style="position: relative; left: 40px; top: -30px;">
 		<div class="page-header">
-			<h3>市场活动-${a.name} <small>${a.startDate} ~ ${a.endDate}</small></h3>
+			<h3>用户角色-${a.name} <small>${a.startDate} ~ ${a.endDate}</small></h3>
 		</div>
 		<div style="position: relative; height: 50px; width: 250px;  top: -72px; left: 700px;">
 			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#editActivityModal"><span class="glyphicon glyphicon-edit"></span> 编辑</button>
@@ -387,24 +387,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 		</div>
 	</div>
 	
-	<!-- 备注 -->
-	<div id="remarkBody" style="position: relative; top: 30px; left: 40px;">
-		<div class="page-header">
-			<h4>备注</h4>
-		</div>
 
-
-		
-		<div id="remarkDiv" style="background-color: #E6E6E6; width: 870px; height: 90px;">
-			<form role="form" style="position: relative;top: 10px; left: 10px;">
-				<textarea id="remark" class="form-control" style="width: 850px; resize : none;" rows="2"  placeholder="添加备注..."></textarea>
-				<p id="cancelAndSaveBtn" style="position: relative;left: 737px; top: 10px; display: none;">
-					<button id="cancelBtn" type="button" class="btn btn-default">取消</button>
-					<button type="button" class="btn btn-primary" id="saveRemarkBtn">保存</button>
-				</p>
-			</form>
-		</div>
-	</div>
 	<div style="height: 200px;"></div>
 </body>
 </html>

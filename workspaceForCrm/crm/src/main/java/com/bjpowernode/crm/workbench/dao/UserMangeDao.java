@@ -15,17 +15,13 @@ public interface UserMangeDao {
 
     int delete(String[] ids);
 
-    UserMangeDao getById(String id);
 
-    int update(UserMangeDao a);
+    int update(UserManage a);
 
     UserMangeDao detail(String id);
 
-    List<UserMangeDao> getActivityListByClueId(String clueId);
-
-    List<UserMangeDao> getActivityListByNameAndNotByClueId(Map<String, String> map);
-
-    List<UserMangeDao> getActivityListByName(String aname);
 
     List<UserManage> getUserManageList();
+
+    List<UserManage> getUserManageList_Id(String id);
 }

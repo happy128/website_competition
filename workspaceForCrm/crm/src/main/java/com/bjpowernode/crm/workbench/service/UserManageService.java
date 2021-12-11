@@ -15,25 +15,19 @@ public interface UserManageService {
 
     boolean delete(String[] ids);
 
-    Map<String, Object> getUserListAndActivity(String id);
 
     boolean update(UserManage a);
 
     UserManage detail(String id);
 
-    List<ActivityRemark> getRemarkListByAid(String activityId);
+    List<UserManage> getRemarkListByAid(String activityId);
 
-    boolean deleteRemark(String id);
 
     boolean saveRemark(ActivityRemark ar);
 
     boolean updateRemark(ActivityRemark ar);
 
-    List<UserManage> getActivityListByClueId(String clueId);
-
-    List<UserManage> getActivityListByNameAndNotByClueId(Map<String, String> map);
-
-    List<UserManage> getActivityListByName(String aname);
-
     List<UserManage> getUserManageList();
+
+    List<UserManage> getUserManageList_Id(String id);
 }

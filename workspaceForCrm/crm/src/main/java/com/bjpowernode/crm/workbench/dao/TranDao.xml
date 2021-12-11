@@ -57,7 +57,7 @@
         from tbl_tran tran
         join tbl_user user
         on tran.owner=user.id
-        join tbl_customer cus
+        join tbl_customer_1 cus
         on tran.customerId=cus.id
         left join tbl_activity act
         on tran.activityId=act.id
@@ -119,34 +119,6 @@
     </insert>
 
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

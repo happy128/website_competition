@@ -163,6 +163,8 @@ public class TranController extends HttpServlet {
 
         String id = request.getParameter("id");
 
+        System.out.println(id);
+
         TranService ts = (TranService) ServiceFactory.getService(new TranServiceImpl());
 
         Tran t = ts.detail(id);

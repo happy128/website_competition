@@ -114,14 +114,49 @@
     <servlet-name>UserManageController</servlet-name>
     <url-pattern>/workbench/usermanage/add.do</url-pattern>
     <url-pattern>/workbench/usermanage/getCustomerName.do</url-pattern>
+    <url-pattern>/workbench/usermanage/delete.do</url-pattern>
     <url-pattern>/workbench/usermanage/save.do</url-pattern>
     <url-pattern>/workbench/usermanage/detail.do</url-pattern>
-    <url-pattern>/workbench/usermanage/getHistoryListByTranId.do</url-pattern>
+    <url-pattern>/workbench/usermanage/getRemarkListByAid.do</url-pattern>
     <url-pattern>/workbench/usermanage/changeStage.do</url-pattern>
-    <url-pattern>/workbench/usermanage/getCharts.do</url-pattern>
+    <url-pattern>/workbench/usermanage/update.do</url-pattern>
     <url-pattern>/workbench/usermanage/getUserManageList.do</url-pattern>
+    <url-pattern>/workbench/usermanage/getUserManageList_Id.do</url-pattern>
+
   </servlet-mapping>
-  
+
+  <servlet>
+    <servlet-name>CustomerController</servlet-name>
+    <servlet-class>com.bjpowernode.crm.workbench.web.controller.CustomerController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerController</servlet-name>
+    <url-pattern>/workbench/customer/add.do</url-pattern>
+    <url-pattern>/workbench/customer/getCustomerName.do</url-pattern>
+    <url-pattern>/workbench/customer/save.do</url-pattern>
+    <url-pattern>/workbench/customer/detail.do</url-pattern>
+    <url-pattern>/workbench/customer/delete.do</url-pattern>
+    <url-pattern>/workbench/customer/changeStage.do</url-pattern>
+    <url-pattern>/workbench/customer/getCharts.do</url-pattern>
+    <url-pattern>/workbench/customer/getCustomerList.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ContactsController</servlet-name>
+    <servlet-class>com.bjpowernode.crm.workbench.web.controller.ContactsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContactsController</servlet-name>
+    <url-pattern>/workbench/contacts/add.do</url-pattern>
+    <url-pattern>/workbench/contacts/getCustomerName.do</url-pattern>
+    <url-pattern>/workbench/contacts/save.do</url-pattern>
+    <url-pattern>/workbench/contacts/detail.do</url-pattern>
+    <url-pattern>/workbench/contacts/delete.do</url-pattern>
+    <url-pattern>/workbench/contacts/changeStage.do</url-pattern>
+    <url-pattern>/workbench/contacts/getCharts.do</url-pattern>
+    <url-pattern>/workbench/contacts/getContactsList.do</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

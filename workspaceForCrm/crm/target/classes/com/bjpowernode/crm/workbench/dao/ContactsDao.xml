@@ -10,21 +10,12 @@
         insert into tbl_contacts(
 
             id,
-            owner,
-            source,
-            customerId,
             fullname,
-            appellation,
             email,
             mphone,
             job,
-            birth,
-            createBy,
-            createTime,
-            description,
-            contactSummary,
-            nextContactTime,
-            address
+            address,
+            description
 
 
         )
@@ -32,21 +23,12 @@
         values(
 
             #{id},
-            #{owner},
-            #{source},
-            #{customerId},
             #{fullname},
-            #{appellation},
             #{email},
             #{mphone},
             #{job},
-            #{birth},
-            #{createBy},
-            #{createTime},
-            #{description},
-            #{contactSummary},
-            #{nextContactTime},
-            #{address}
+            #{address},
+            #{description}
 
 
         )
@@ -54,6 +36,24 @@
 
 
     </insert>
+
+    <delete id="delete">
+
+        delete from tbl_contacts
+
+        where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+
+            #{id}
+
+        </foreach>
+
+
+    </delete>
+
+    <select id="getContactsList" resultType="Contacts">
+        select * from tbl_contacts
+    </select>
   	
 </mapper>
 

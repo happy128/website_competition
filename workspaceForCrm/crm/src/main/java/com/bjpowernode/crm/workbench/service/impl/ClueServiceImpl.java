@@ -108,15 +108,15 @@ public class ClueServiceImpl implements ClueService {
             cus = new Customer();
             cus.setId(UUIDUtil.getUUID());
             cus.setAddress(c.getAddress());
-            cus.setWebsite(c.getWebsite());
-            cus.setPhone(c.getPhone());
-            cus.setOwner(c.getOwner());
-            cus.setNextContactTime(c.getNextContactTime());
-            cus.setName(company);
-            cus.setDescription(c.getDescription());
-            cus.setCreateTime(createTime);
-            cus.setCreateBy(createBy);
-            cus.setContactSummary(c.getContactSummary());
+//            cus.setWebsite(c.getWebsite());
+//            cus.setPhone(c.getPhone());
+//            cus.setOwner(c.getOwner());
+//            cus.setNextContactTime(c.getNextContactTime());
+//            cus.setName(company);
+//            cus.setDescription(c.getDescription());
+//            cus.setCreateTime(createTime);
+//            cus.setCreateBy(createBy);
+//            cus.setContactSummary(c.getContactSummary());
             //添加客户
             int count1 = customerDao.save(cus);
             if(count1!=1){

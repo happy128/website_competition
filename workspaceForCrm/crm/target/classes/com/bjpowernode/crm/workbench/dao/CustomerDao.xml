@@ -5,6 +5,12 @@
 
 <mapper namespace="com.bjpowernode.crm.workbench.dao.CustomerDao">
 
+    <select id="getCustomerList" resultType="Customer">
+
+         select * from tbl_customer
+
+
+    </select>
     <select id="getCustomerName" resultType="String">
 
         select name from tbl_customer where name like '%' #{name} '%'
@@ -16,32 +22,24 @@
         insert into tbl_customer(
 
             id,
-            owner,
-            name,
-            website,
-            phone,
-            createBy,
-            createTime,
-            contactSummary,
-            nextContactTime,
-            description,
-            address
+            company_name,
+            address,
+            principal,
+            industry,
+            salesman,
+            consumer_preferences
 
         )
 
         values(
 
             #{id},
-            #{owner},
-            #{name},
-            #{website},
-            #{phone},
-            #{createBy},
-            #{createTime},
-            #{contactSummary},
-            #{nextContactTime},
-            #{description},
-            #{address}
+            #{company_name},
+            #{address},
+            #{principal},
+            #{industry},
+            #{salesman},
+            #{consumer_preferences}
 
         )
 
@@ -56,6 +54,20 @@
         select * from tbl_customer where name=#{name}
 
     </select>
+
+    <delete id="delete">
+
+        delete from tbl_customer
+
+        where id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+
+            #{id}
+
+        </foreach>
+
+
+    </delete>
   	
 </mapper>
 

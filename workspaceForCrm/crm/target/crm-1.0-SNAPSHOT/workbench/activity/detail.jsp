@@ -174,7 +174,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 		})
 
 	});
-
+<%--	${a.id}--%>
 	function showRemarkList() {
 
 		$.ajax({
